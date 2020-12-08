@@ -58,13 +58,16 @@
 							<span th:errors="*{cep}"></span>
 						</div><br/>
 						
-						<label for="senha">Senha: </label><br/>	
-						<input type="password" id="senha" name="senha" placeholder="Senha..."  th:field="*{senha}"
-						th:classappend="${#fields.hasErrors('senha')} ? 'inputError' : ''" /><br/>
-						
-						<div id="mensagemDeErro" th:if="${#fields.hasErrors('senha')}">
-							<span th:errors="*{senha}"></span>
-						</div><br/>
+						<div th:if="${!editMode}">
+							<label for="senha">Senha: </label><br/>	
+							<input type="password" id="senha" name="senha" placeholder="Senha..."  th:field="*{senha}"
+							th:classappend="${#fields.hasErrors('senha')} ? 'inputError' : ''" /><br/>
+							
+							<div id="mensagemDeErro" th:if="${#fields.hasErrors('senha')}">
+								<span th:errors="*{senha}"></span>
+							</div><br/>
+						</div>
+						<input type="hidden" name="senha" value="*" th:if="${editMode}"/>
 						
 						<input type="submit" th:value="${!editMode} ? 'Cadastrar' : 'Alterar'"/>
 					</fieldset>

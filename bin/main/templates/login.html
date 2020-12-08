@@ -6,22 +6,27 @@
 			<div>
 				<img th:src="@{/images/bf_iconeUsuario.png}" id="imgIconeUsuario"/>
 				<h1>Autenticação</h1>
-				<form method="post" action="">
+				<form method="post" th:action="@{/login}">
 					<fieldset>
-						<input type="text" name="email" placeholder="E-mail..."/> 
-						<input type="password" name="senha" placeholder="Senha..."/> 
-						<input type="button" value="Entrar" onClick="location.href = 'clienteHome.html';"/>
+						<input type="text" name="username" placeholder="E-mail..."/> 
+						<input type="password" name="password" placeholder="Senha..."/> 
+						<input type="submit" value="Entrar"/>
 					</fieldset>
 				</form>
 				<br/>
 	
-				<div id="mensagemDeErro">Aqui vai um exemplo de mensagem de erro</div>
+				<div th:if="${msg != null}" id="mensagemDeErro">
+					<span th:text="${msg}"></span>
+				</div></br>
 				
 				<form method="get" th:action="@{/public/cliente/new}">
 					<input type="submit" value="Gostaria de criar a minha conta de Cliente"/>
 				</form>
 				
-				<br> <input type="button" value="Gostaria de criar a minha conta de restaurante" onClick="location.href='restauranteCadastro.html';"/>
+				<form method="get" th:action="@{/public/restaurante/new}">
+					<input type="submit" value="Gostaria de criar a minha conta de Restaurante"/>
+				</form>
+				
 			</div>
 		</div>
 	</body>

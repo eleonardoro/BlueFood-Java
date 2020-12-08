@@ -13,6 +13,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.eleonardo.bluefood.util.StringUtils;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,8 +45,12 @@ public class Usuario implements Serializable{
   private String senha;
   
   @NotBlank(message = "Digite o telefone!")
-  @Pattern(regexp = "[0-9] {10,11}", message = "O telefone digitado é inválido!")
+  @Pattern(regexp = "[0-9]{10,11}", message = "O telefone digitado é inválido!")
   @Column(length = 11, nullable = false)
   private String telefone;
+  
+  public void encryptPassword() {
+    this.senha = StringUtils.encrypt(this.senha);
+  }
 
 }

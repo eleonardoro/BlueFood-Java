@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org" layout:decorate="~{layout}" th:with="link=@{/cliente/home}">
+	<body>
+		<div layout:fragment="content">
+			
+			<div>
+				<h1>É hora de rangar!</h1>
+				<form method="post" action="clienteBusca.html">
+					<fieldset>
+						<input type="text" name="email" placeholder="Buscar por...">
+						<input type="submit" value="Procurar">
+					</fieldset>
+				</form>
+				<br/>
+			</div>
+			
+			<div id="divCategoriasComidaGeral">
+				<div id="divCategoriasComidaOpcao" th:each="categoria : ${categorias}">
+					<a href="#">
+					<img th:src="@{/images/categoria/} + ${categoria.imagem}" id="imgCategoriaComida"><br/>
+					<span th:text="${categoria.nome}"/>
+					</a>
+				</div>
+			</div>
+	
+			<div>
+				<h1>Resultados</h1>
+				<fieldset id="fieldsetFiltros">
+					<legend>Filtros</legend>
+					<input type="button" value="Entrega grátis"><br/>
+					<input type="button" value="Maior preço" id="inputSelecionado"> <input type="button" value="Menor preço"> <br/>
+					<input type="button" value="Maior taxa" id="inputSelecionado"> <input type="button" value="Menor taxa"> <br/>
+					<input type="button" value="Maior tempo"> <input type="button" value="Menor tempo" id="inputSelecionado"> <br/>
+				</fieldset>
+				<br/>
+			</div>
+			
+			<div id="divRestaurantesGeral">
+				<div id="divRestaurantesOpcao" th:each="restaurante : ${restaurantes}">
+					<a href="clienteRestaurante.html">
+						<img th:src="@{/images/restaurante/} + ${restaurante.logotipo}" id="imgRestauranteOpcao"><br/>
+						<span id="restauranteOpcaoTitulo" th:text="${restaurante.nome}"/><br/>
+						<span id="restauranteOpcaoCategoria" th:text="${restaurante.categoriaAsText}"/><br/>
+						<span id="restauranteOpcaoTempo" th:text="'Tempo médio de entrega: ' + ${restaurante.tempoEntregaBase} + 'm'"/><br/>
+						<span id="restauranteOpcaoTaxa" th:text="'Taxa de Entrega: ' + ${#numbers.formatCurrency(restaurante.taxaEntrega)}"/><br/>
+					</a>
+					<br/><br/>
+				</div>
+	
+			</div>
+	
+			<input type="button" value="Voltar" onClick="location.href='clienteHome.html';">
+		</div>
+
+	</body>
+</html>
+
