@@ -1,8 +1,6 @@
 package com.eleonardo.bluefood.domain.restaurante;
 import java.util.Comparator;
 
-import com.eleonardo.bluefood.domain.restaurante.Restaurante;
-import com.eleonardo.bluefood.domain.restaurante.SearchFilter;
 import com.eleonardo.bluefood.domain.restaurante.SearchFilter.Order;
 
 public class RestauranteComparator implements Comparator<Restaurante> {

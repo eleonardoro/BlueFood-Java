@@ -1,7 +1,5 @@
 package com.eleonardo.bluefood.infraestructure.web.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.eleonardo.bluefood.application.service.ClienteService;
 import com.eleonardo.bluefood.application.service.RestauranteService;
 import com.eleonardo.bluefood.domain.cliente.Cliente;
-import com.eleonardo.bluefood.domain.restaurante.CategoriaRestaurante;
 import com.eleonardo.bluefood.domain.restaurante.CategoriaRestauranteRepository;
 import com.eleonardo.bluefood.domain.restaurante.Restaurante;
 

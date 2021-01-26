@@ -46,7 +46,7 @@
 			<div id="divRestaurantesGeral">
 				<div id="divRestaurantesOpcao" th:each="restaurante : ${restaurantes}">
 					<a th:href="@{/cliente/restaurante} + '?restauranteId=' + ${restaurante.id}">
-						<img th:src="@{/images/comida/} + ${restaurante.logotipo}" id="imgRestauranteOpcao"><br/>
+						<img th:src="@{/images/restaurante/} + ${restaurante.logotipo}" id="imgRestauranteOpcao"><br/>
 						<span id="restauranteOpcaoTitulo" th:text="${restaurante.nome}"/><br/>
 						<span id="restauranteOpcaoCategoria" th:text="${restaurante.categoriasAsText}"/><br/>
 						<span id="restauranteOpcaoTempo" th:text="'Tempo médio de entrega: ' + ${restaurante.calcularTempoEntrega(cep)} + 'm'"/><br/>
@@ -63,7 +63,6 @@
 			<br />
 			<input type="button" value="Voltar" th:onClick="'location.href=\'' + @{/cliente/home} + '\';'">
 		</div>
-
 	</body>
 </html>
 

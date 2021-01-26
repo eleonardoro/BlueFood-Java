@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eleonardo.bluefood.domain.cliente.ClienteRepository;
+import com.eleonardo.bluefood.domain.restaurante.ItemCardapio;
+import com.eleonardo.bluefood.domain.restaurante.ItemCardapioRepository;
 import com.eleonardo.bluefood.domain.restaurante.Restaurante;
 import com.eleonardo.bluefood.domain.restaurante.RestauranteComparator;
 import com.eleonardo.bluefood.domain.restaurante.RestauranteRepository;
@@ -27,6 +29,9 @@ public class RestauranteService {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private ItemCardapioRepository itemCardapioRepository;
 
 	@Transactional
 	public void saveRestaurante(Restaurante restaurante) throws ValidationException {
@@ -38,6 +43,9 @@ public class RestauranteService {
 		if (restaurante.getId() != null) {
 			Restaurante restauranteDb = restauranteRepository.findById(restaurante.getId()).orElseThrow();
 			restaurante.setSenha(restauranteDb.getSenha());
+			restaurante.setLogotipo(restauranteDb.getLogotipo());
+			
+			restauranteRepository.save(restaurante);
 
 		} else {
 			restaurante.encryptPassword();
@@ -101,5 +109,15 @@ public class RestauranteService {
 		restaurantes.sort(comparator);
 
 		return restaurantes;
+	}
+	
+	@Transactional
+	public void saveItemCardapio(ItemCardapio itemCardapio) {
+		
+		itemCardapio = itemCardapioRepository.save(itemCardapio);
+		
+		itemCardapio.setImagemFileName();
+		
+		imageService.uploadComida(itemCardapio.getImagemFile(), itemCardapio.getImagem());
 	}
 }

@@ -19,6 +19,8 @@ import com.eleonardo.bluefood.application.service.ClienteService;
 import com.eleonardo.bluefood.application.service.RestauranteService;
 import com.eleonardo.bluefood.domain.cliente.Cliente;
 import com.eleonardo.bluefood.domain.cliente.ClienteRepository;
+import com.eleonardo.bluefood.domain.pedido.Pedido;
+import com.eleonardo.bluefood.domain.pedido.PedidoRepository;
 import com.eleonardo.bluefood.domain.restaurante.CategoriaRestaurante;
 import com.eleonardo.bluefood.domain.restaurante.CategoriaRestauranteRepository;
 import com.eleonardo.bluefood.domain.restaurante.ItemCardapio;
@@ -49,6 +51,9 @@ public class ClienteController {
 	
 	@Autowired
 	private RestauranteRepository restauranteRepository;
+	
+	@Autowired
+	private PedidoRepository pedidoRepository;
 
 	@GetMapping(path = "/home")
 	public String home(Model model) {
@@ -56,6 +61,10 @@ public class ClienteController {
 		List<CategoriaRestaurante> categorias = categoriaRestauranteRepository.findAll(Sort.by("nome"));
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("searchFilter", new SearchFilter());
+		
+		List<Pedido> pedidos = pedidoRepository.listPedidosByCliente(SecurityUtils.loggedCliente().getId());
+		
+		model.addAttribute("pedidos", pedidos);
 
 		return "cliente-home";
 	}

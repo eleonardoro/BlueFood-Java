@@ -27,5 +27,9 @@ public class Cliente extends Usuario{
   @Pattern(regexp = "[0-9]{8}", message = "O CEP digitado é inválido!")
   @Column(length = 8)
   private String cep;
+  
+  public String getFormattedCep() {
+	  return cep.substring(0,5) + "-" + cep.substring(5);
+  }
 
 }
