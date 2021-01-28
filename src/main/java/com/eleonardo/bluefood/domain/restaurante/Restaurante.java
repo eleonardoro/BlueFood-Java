@@ -43,16 +43,16 @@ import lombok.ToString;
 public class Restaurante extends Usuario {
 
 	@NotBlank(message = "Digite o CNPJ!")
-	@Pattern(regexp = "[0-9]{14}", message = "O CNPJ digitado È inv·lido!")
+	@Pattern(regexp = "[0-9]{14}", message = "O CNPJ digitado √© inv√°lido!")
 	@Column(length = 14, nullable = false)
 	private String cnpj;
 
-	@NotNull(message = "A Taxa de Entrega n„o pode ser vazia!")
+	@NotNull(message = "A Taxa de Entrega n√£o pode ser vazia!")
 	@DecimalMin("0.0")
 	@DecimalMax("99.99")
 	private BigDecimal taxaEntrega;
 
-	@NotNull(message = "O Tempo de Entrega n„o pode ser vazia!")
+	@NotNull(message = "O Tempo de Entrega n√£o pode ser vazia!")
 	@Min(0)
 	@Max(120)
 	private Integer tempoEntregaBase;
@@ -74,7 +74,7 @@ public class Restaurante extends Usuario {
 
 	public void setLogotipoFileName() {
 		if (getId() == null) {
-			throw new IllegalStateException("… preciso primeiro gravar o registro do restaurante!");
+			throw new IllegalStateException("√â preciso primeiro gravar o registro do restaurante!");
 		}
 
 		this.logotipo = String.format("%04d-logo.%s", getId(),

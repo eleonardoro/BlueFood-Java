@@ -2,7 +2,7 @@ package com.eleonardo.bluefood.domain.pagamento;
 
 public enum StatusPagamento {
 
-	Autorizado("Autorizado!"), NaoAutorizado("N„o autorizado pela instituiÁ„o financeira!"), CartaoInvalido("Cart„o Inv·lido ou Bloqueado!");
+	Autorizado("Autorizado!"), NaoAutorizado("N√£o autorizado pela institui√ß√£o financeira!"), CartaoInvalido("Cart√£o Inv√°lido ou Bloqueado!");
 
 	String descricao;
 

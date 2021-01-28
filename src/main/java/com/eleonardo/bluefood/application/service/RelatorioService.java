@@ -14,6 +14,7 @@ import com.eleonardo.bluefood.domain.pedido.PedidoRepository;
 import com.eleonardo.bluefood.domain.pedido.RelatorioItemFaturamento;
 import com.eleonardo.bluefood.domain.pedido.RelatorioItemFilter;
 import com.eleonardo.bluefood.domain.pedido.RelatorioPedidoFilter;
+import com.eleonardo.bluefood.util.CollectionUtils;
 
 @Service
 public class RelatorioService {
@@ -27,14 +28,14 @@ public class RelatorioService {
 
 		if (pedidoId != null) {
 			Pedido pedido = pedidoRepository.findByIdAndRestaurante_Id(pedidoId, restauranteId);
-			return List.of(pedido);
+			return CollectionUtils.listOf(pedido);
 		}
 
 		LocalDate dataInicial = filter.getDataInicial();
 		LocalDate dataFinal = filter.getDataFinal();
 
 		if (dataInicial == null)
-			return List.of();
+			return CollectionUtils.listOf();
 
 		if (dataFinal == null)
 			dataFinal = LocalDate.now();
@@ -52,7 +53,7 @@ public class RelatorioService {
 		LocalDate dataFinal = filter.getDataFinal();
 
 		if (dataInicial == null)
-			return List.of();
+			return CollectionUtils.listOf();
 
 		if (dataFinal == null)
 			dataFinal = LocalDate.now();

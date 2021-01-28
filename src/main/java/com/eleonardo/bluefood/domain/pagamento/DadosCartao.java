@@ -6,9 +6,9 @@ import javax.validation.constraints.Pattern;
 
 public class DadosCartao {
 
-	@Pattern(regexp = "\\d{16}", message = "O n˙mero do cart„o È inv·lido!")
-	@NotNull(message = "… preciso enviar os Dados do Cart„o!")
-	@NotBlank(message = "… preciso enviar os Dados do Cart„o!")
+	@Pattern(regexp = "\\d{16}", message = "O n√∫mero do cart√£o √© inv√°lido!")
+	@NotNull(message = "√â preciso enviar os Dados do Cart√£o!")
+	@NotBlank(message = "√â preciso enviar os Dados do Cart√£o!")
 	private String numCartao;
 
 	public String getNumCartao() {

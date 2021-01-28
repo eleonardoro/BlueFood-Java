@@ -3,6 +3,7 @@ package com.eleonardo.bluefood.application.service;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,11 +38,11 @@ public class RestauranteService {
 	public void saveRestaurante(Restaurante restaurante) throws ValidationException {
 
 		if (!validateEmail(restaurante.getEmail(), restaurante.getId())) {
-			throw new ValidationException("E-mail j· cadastrado!");
+			throw new ValidationException("E-mail j√° cadastrado!");
 		}
 
 		if (restaurante.getId() != null) {
-			Restaurante restauranteDb = restauranteRepository.findById(restaurante.getId()).orElseThrow();
+			Restaurante restauranteDb = restauranteRepository.findById(restaurante.getId()).orElseThrow(NoSuchElementException::new);
 			restaurante.setSenha(restauranteDb.getSenha());
 			restaurante.setLogotipo(restauranteDb.getLogotipo());
 			
@@ -89,7 +90,7 @@ public class RestauranteService {
 		} else if (searchFilter.getSearchType() == SearchType.Categoria) {
 			restaurantes = restauranteRepository.findByCategorias_Id(searchFilter.getCategoriaId());
 		} else {
-			throw new IllegalStateException("O tipo de busca " + searchFilter.getSearchType() + " n„o È suportado!");
+			throw new IllegalStateException("O tipo de busca " + searchFilter.getSearchType() + " n√£o √© suportado!");
 		}
 
 		Iterator<Restaurante> it = restaurantes.iterator();

@@ -19,12 +19,12 @@ import lombok.Setter;
 public class Cliente extends Usuario{
   
   @NotBlank(message = "Digite o CPF!")
-  @Pattern(regexp = "[0-9]{11}", message = "O CPF digitado È inv·lido!")
+  @Pattern(regexp = "[0-9]{11}", message = "O CPF digitado √© inv√°lido!")
   @Column(length = 11, nullable = false)
   private String cpf;
   
   @NotBlank(message = "Digite o CEP!")
-  @Pattern(regexp = "[0-9]{8}", message = "O CEP digitado È inv·lido!")
+  @Pattern(regexp = "[0-9]{8}", message = "O CEP digitado √© inv√°lido!")
   @Column(length = 8)
   private String cep;
   

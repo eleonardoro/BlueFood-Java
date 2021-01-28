@@ -14,7 +14,7 @@ public class SecurityUtils {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     
     if(authentication instanceof AnonymousAuthenticationToken)
-      return null; //N„o est· autenticado
+      return null; //N√£o est√° autenticado
     
     return (LoggedUser) authentication.getPrincipal();
   }
@@ -23,10 +23,10 @@ public class SecurityUtils {
     LoggedUser loggedUser = loggedUser();
     
     if(loggedUser == null)
-      throw new IllegalStateException("N„o existe um usu·rio logado");
+      throw new IllegalStateException("N√£o existe um usu√°rio logado");
     
     if(!(loggedUser.getUsuario() instanceof Cliente))
-      throw new IllegalStateException("O usu·rio logado n„o È um Cliente!");
+      throw new IllegalStateException("O usu√°rio logado n√£o √© um Cliente!");
     
     return (Cliente) loggedUser.getUsuario();
   }
@@ -35,10 +35,10 @@ public class SecurityUtils {
     LoggedUser loggedUser = loggedUser();
     
     if(loggedUser == null)
-      throw new IllegalStateException("N„o existe um usu·rio logado");
+      throw new IllegalStateException("N√£o existe um usu√°rio logado");
     
     if(!(loggedUser.getUsuario() instanceof Restaurante))
-      throw new IllegalStateException("O usu·rio logado n„o È um Restaurante!");
+      throw new IllegalStateException("O usu√°rio logado n√£o √© um Restaurante!");
     
     return (Restaurante) loggedUser.getUsuario();
   }

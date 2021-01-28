@@ -32,20 +32,20 @@ public class Usuario implements Serializable{
   private Integer id;
   
   @NotBlank(message = "Digite o nome!")
-  @Size(max = 80, message = "O nome digitado È muito grande!")
+  @Size(max = 80, message = "O nome digitado √© muito grande!")
   private String nome;
   
   @NotBlank(message = "Digite o e-mail!")
-  @Size(max = 60, message = "O e-mail digitado È muito grande!")
-  @Email(message = "O e-mail digitado È inv·lido!")
+  @Size(max = 60, message = "O e-mail digitado √© muito grande!")
+  @Email(message = "O e-mail digitado √© inv√°lido!")
   private String email;
   
   @NotBlank(message = "Digite a senha!")
-  @Size(max = 80, message = "A senha digitada È muito grande!")
+  @Size(max = 80, message = "A senha digitada √© muito grande!")
   private String senha;
   
   @NotBlank(message = "Digite o telefone!")
-  @Pattern(regexp = "[0-9]{10,11}", message = "O telefone digitado È inv·lido!")
+  @Pattern(regexp = "[0-9]{10,11}", message = "O telefone digitado √© inv√°lido!")
   @Column(length = 11, nullable = false)
   private String telefone;
   

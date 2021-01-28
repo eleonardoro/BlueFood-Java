@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 public class RelatorioPedidoFilter {
 
-	@SuppressWarnings("unused")
 	private Integer pedidoId;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

@@ -36,22 +36,22 @@ public class ItemCardapio implements Serializable{
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   
-  @NotBlank(message = "O Nome n„o pode ser vazio!")
-  @Size(max = 50, message = "O Nome deve ter atÈ 50 caracteres!")
+  @NotBlank(message = "O Nome n√£o pode ser vazio!")
+  @Size(max = 50, message = "O Nome deve ter at√© 50 caracteres!")
   private String nome;
   
-  @NotBlank(message = "A Categoria n„o pode ser vazia!")
-  @Size(max = 25, message = "A Categoria deve ter atÈ 25 caracteres!")
+  @NotBlank(message = "A Categoria n√£o pode ser vazia!")
+  @Size(max = 25, message = "A Categoria deve ter at√© 25 caracteres!")
   private String categoria;
   
-  @NotBlank(message = "A DescriÁ„o n„o pode ser vazia!")
-  @Size(max = 80, message = "A DescriÁ„o deve ter atÈ 80 caracteres!")
+  @NotBlank(message = "A Descri√ß√£o n√£o pode ser vazia!")
+  @Size(max = 80, message = "A Descri√ß√£o deve ter at√© 80 caracteres!")
   private String descricao;
   
   @Size(max = 50)
   private String imagem;
   
-  @NotNull(message = "O PreÁo n„o pode ser vazio!")
+  @NotNull(message = "O Pre√ßo n√£o pode ser vazio!")
   @DecimalMin("0.0")
   private BigDecimal preco;
   
@@ -63,7 +63,7 @@ public class ItemCardapio implements Serializable{
   @JoinColumn(name = "restaurante_id")
   private Restaurante restaurante;
   
-  @UploadConstraint(acceptedFiles = FileType.PNG, message = "O arquivo n„o È de uma extens„o aceitado. Enviar apenas PNG!")
+  @UploadConstraint(acceptedFiles = FileType.PNG, message = "O arquivo n√£o √© de uma extens√£o aceitado. Enviar apenas PNG!")
   private transient MultipartFile imagemFile;
   
   public void setImagemFileName() {

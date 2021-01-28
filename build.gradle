@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.eleonardo.bluefood'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '8'
 
 configurations {
 	compileOnly {
@@ -39,6 +39,8 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.security:spring-security-test' 
+	testRuntime 'com.h2database:h2'
+	testRuntimeOnly "org.junit.platform:junit-platform-commons:1.7.0"
 }
 
 test {

@@ -28,13 +28,13 @@ import lombok.Setter;
 @SuppressWarnings("serial")
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "pedido")
 public class Pedido implements Serializable {
 
 	public enum Status {
-		Producao(1, "Em Produção", false), Entrega(2, "Saiu para entrega", false), Concluido(3, "Concluído", true);
+		Producao(1, "Em ProduÃ§Ã£o", false), Entrega(2, "Saiu para entrega", false), Concluido(3, "ConcluÃ­do", true);
 
 		Status(int ordem, String descricao, boolean ultimo) {
 			this.ordem = ordem;
