@@ -1,5 +1,5 @@
 <h1 align="center">
-    BluFood Java :hamburger::pizza:
+    BlueFood Java :hamburger::pizza:
 </h1>
 
 <h4 align="center">
